@@ -1,0 +1,23 @@
+{% extends "Maggotty/layout.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+User Login
+{% endblock %}
+{% block content %}
+{% load static %}
+<p>Please enter your username and password!</p>
+<div class="container">
+    <div class="jumbotron">
+        <form enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input type="submit" name="" value="Login">
+        </form>
+        <div class="exists">
+            <small class="chkexists">
+                Don't have an account? <a class="login" href="{% url 'register' %}">Register</a>
+            </small>
+        </div>
+    </div>
+</div>
+{% endblock %}
